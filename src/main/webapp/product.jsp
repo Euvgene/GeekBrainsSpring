@@ -11,7 +11,7 @@
 
 <h3>Product info</h3>
 <table border="1" width="500" align="center">
-    <tr bgcolor="blue">
+    <tr bgcolor="#ff8c00">
         <th><b>Product ID</b></th>
         <th><b>Product Title</b></th>
         <th><b>Product Cost</b></th>
