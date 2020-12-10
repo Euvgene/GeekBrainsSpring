@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Products list</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+        td {
+            padding: 5px;
+            horiz-align: center;
+        }
+        div {
+            width: 100%;
+        }
+        span {
+            display: block;
+            text-align: center
+        }
+        a {
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<h1 align="center">Список продуктов:</h1>
+<table border="4" width="500" align="center" th:if="${products.size() > 0}">
+    <tr>
+        <td align="center">Id</td>
+        <td align="center">Title</td>
+        <td align="center">Cost</td>
+    </tr>
+    <tbody align="centre">
+    <tr th:each="b : ${products}">
+        <td align="center" th:text="${b.id}"></td>
+        <td align="center" th:text="${b.title}"></td>
+        <td align="center" th:text="${b.cost + ' р.'}"></td>
+    </tr>
+    </tbody>
+</table>
+<span th:unless="${products.size() > 0}">Продуктов нет</span>
+<br>
+<div class="buttons">
+    <span th:text="'Количество продуктов: ' + ${products.size()}"/>
+    <br>
+    <a th:href="@{/products/change_products}">Редактировать список продуктов</a>
+    <br>
+    <a th:href="@{/}">Путиводитель</a>
+</div>
+</body>
+</html>
